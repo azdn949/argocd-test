@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: oc-sample-deployment
+  namespace: dev
+  labels:
+    app: oc-sample
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: oc-sample
+  template:
+    metadata:
+      labels:
+        app: oc-sample
+    spec:
+      containers:
+        - name: oc-sample
+          image: azdn949/oc-sample:0.3
+          ports:
+            - containerPort: 8085
+          envFrom:
+            - configMapRef:
+                name: oc-sample-config
