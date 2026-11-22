@@ -19,7 +19,7 @@ spec:
         - name: oc-sample
           image: azdn949/oc-sample:0.3
           ports:
-            - containerPort: 8085
+            - containerPort: 8080
           envFrom:
             - configMapRef:
                 name: oc-sample-config

@@ -4,10 +4,11 @@ metadata:
   name: oc-sample-service
   namespace: dev
 spec:
-  type: ClusterIP
+  type: NodePort
   selector:
     app: oc-sample
   ports:
     - protocol: TCP
       port: 8085
-      targetPort: 8085
+      targetPort: 8080   # Change to 80 or 8085 if your container logs show a different port
+      nodePort: 30085    # Accessible externally on port 30085
